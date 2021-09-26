@@ -1,0 +1,23 @@
+body{
+    background-color: blueviolet;
+    color: white;
+    padding: 15px 100px
+}
+.jogo{
+    align-items: center;
+    display: flex;
+}
+#labirinto {
+    margin: 10px auto;
+    background-color: white;
+    width: 500px;
+    height: 500px;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    border: 3px solid rgb(0, 0, 0);
+}
+footer{
+    margin-top: 100px;
+    width: 100%;
+    text-align: center;
+}
