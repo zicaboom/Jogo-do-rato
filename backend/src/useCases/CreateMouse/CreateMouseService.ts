@@ -1,3 +1,4 @@
+import { v4 } from "uuid"
 import { Mouse } from "../../entities/Mouse"
 import { Table } from "../../entities/Table"
 import { CreateGameService } from "../CreateGame/CreateGameService"
@@ -9,15 +10,8 @@ class CreateMouseService{
             createGameService.execute()
         }
 
-        let cell: number
-
-        do{
-            cell = Math.round(Math.random() * Table.getCells.length)
-        }while(Table.getCells[cell])
-
-        const mouse = new Mouse(cell)
-        Table.getMouses.push(mouse)
-        Table.getCells[cell] = 'r'
+        const mouse = new Mouse(v4())
+        Table.setMouses = mouse
 
         return {mouse}
     }

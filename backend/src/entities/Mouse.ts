@@ -1,14 +1,21 @@
-import { v4 } from "uuid"
-
 class Mouse {
-    readonly id: string 
+    private id: string 
     private pontos: number 
     private position: number
 
-    constructor(cell: number){
-        this.id = v4()
+    set setPosition(position: number){
+        this.position = position
+    }
+    get getPosition(){
+        return this.position
+    }
+    get getId(){
+        return this.id
+    }
+    constructor(id: string){
+        this.id = id
         this.pontos = 0
-        this.position=cell
+        this.position= 0
     }
 }
 

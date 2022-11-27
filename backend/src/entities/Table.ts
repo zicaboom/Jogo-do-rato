@@ -1,9 +1,12 @@
 import { Mouse } from "./Mouse"
 
+interface Mouses{
+    [key: string]: Mouse
+}
 class Table{
     private static width: number
     private static height: number
-    private static mouses: Mouse[]
+    private static mouses: Mouses
     private static cells: string[]
     private static init: boolean = false
 
@@ -24,11 +27,18 @@ class Table{
     }
     
     static set setMouses(mouse: Mouse){
-        Table.mouses.push(mouse)
+        Table.mouses[mouse.getId] = mouse
+
+        console.log(Table.mouses)
+        let cell: number
+
+        do{
+            cell = Math.round(Math.random() * Table.cells.length)
+        }while(Table.cells[cell])
+        mouse.setPosition = cell
+        Table.cells[cell] = 'r'
     }
-    static set setCells(cells: string[]){
-        Table.cells = cells
-    }
+
     static set setWidth(width: number){
         Table.width = width
     }
@@ -37,10 +47,10 @@ class Table{
     }
 
     constructor(){
-        Table.width = 20
-        Table.height = 20
-        Table.mouses = Array()
-        Table.cells = Array(Table.width * Table.height)
+        Table.width = 5
+        Table.height = 5
+        Table.mouses = Object()
+        Table.cells = Array(Table.width * Table.height).fill('')
         Table.init = true
     }
 }
